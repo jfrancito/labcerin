@@ -87,15 +87,20 @@ class ConsultaController extends Controller
 	public function actionMantenimientoRegistroConsulta(Request $request)
 	{
 
-		$data_consulta_id  			= 	$request['data_consulta_id'];
-		$data_examen_id  			= 	$request['data_examen_id'];
+		$data_cod_resultado  		= 	$request['data_cod_resultado'];
+		$data_examenres_id  		= 	$request['data_examenres_id'];
 		$idopcion  					= 	$request['idopcion'];
 
-		$listadetalleconsulta 		= 	ListarDetalleConsultasWeb::where('codresultado','=',$data_consulta_id)
-										->where('CODEXAMEN','=',$data_examen_id)->get();
 
-		$consulta 					= 	ListarConsultasWeb::where('CODRESULTADO','=',$data_consulta_id)
-										->where('COD_EXAMEN','=',$data_examen_id)->first();
+
+		$listadetalleconsulta 		= 	ListarDetalleConsultasWeb::where('codresultado','=',$data_cod_resultado)
+										->where('codresexamen','=',$data_examenres_id)->get();
+
+		$consulta 					= 	ListarConsultasWeb::where('codresultado','=',$data_cod_resultado)
+										->where('codresexamen','=',$data_examenres_id)->first();
+
+							
+
 
 		return View::make('consulta/ajax/mantenimientoconsulta',
 						 [
@@ -118,7 +123,7 @@ class ConsultaController extends Controller
 	    $fechafin  					= 	$this->fin;
 	    $fechabusqueda				=  date_format(date_create($fechafin), 'd/m/Y');
 
-		$listaconsulta = ListarConsultasWeb::where('FECHAEXAMEN','=',$fechabusqueda)->get();
+		$listaconsulta = ListarConsultasWeb::where('fechaexamen','=',$fechabusqueda)->get();
 
 		//$listaconsulta = ListarConsultasWeb::get();
 
@@ -139,7 +144,7 @@ class ConsultaController extends Controller
 		$ffin 					=  date_format(date_create($request['ffin']), 'd/m/Y');
 		$idopcion 				=  $request['idopcion'];
 		$funcion 				=  $this;	
-		$listaconsulta 			=  ListarConsultasWeb::where('FECHAEXAMEN','=',$ffin)->get();
+		$listaconsulta 			=  ListarConsultasWeb::where('fechaexamen','=',$ffin)->get();
 
 
 		return View::make('consulta/ajax/alistadodiario',

@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
 
         Schema::defaultStringLength(191);    
         View::share('capeta', '/labcerin');  
-        View::share('version', '25');  
+        View::share('version', '26');  
     }
 
     /**

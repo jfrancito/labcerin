@@ -1,8 +1,8 @@
   <div class="panel panel-contrast">
     <div class="panel-heading panel-heading-contrast">
-          <strong class='glosa'>{{$consulta->EXAMEN}}</strong>
+          <strong class='glosa'>{{$consulta->examen}}</strong>
           <span class="panel-subtitle fecha_estado">
-          {{$consulta->PACIENTE}}
+          {{$consulta->paciente}}
           </span>                          
           <span class="mdi mdi-close-circle mdi-close-cliente"></span>
 
@@ -26,7 +26,12 @@
   <div class="panel-body">
       
     <div class="scroll_text_q">
+
+
+      
         @foreach($listadetalleconsulta as $index => $item) 
+
+
         <div  class='col-sm-12 productoseleccion col-mobil-top'
               data_id_coddetalleexamen                 = "{{$item->coddetresultado}}"
               >
@@ -53,7 +58,7 @@
         <div class="row">
           <div  class='col-sm-12'>
                       <span class='panel-subtitle cell-detail-producto'>Observacion :
-                        <textarea name='obs' id = 'obs' required="" class="form-control"></textarea>
+                        <textarea name='obs' id = 'obs' required="" class="form-control">{{trim($consulta->observacion)}}</textarea>
                       </span>
           </div>
         </div>

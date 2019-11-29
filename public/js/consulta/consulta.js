@@ -39,8 +39,8 @@ $(document).ready(function(){
 
     $(".listadodiario").on('click','.btn-detalle-registro-consulta', function() {
         
-        var data_consulta_id    =   $(this).attr('data_consulta_id');
-        var data_examen_id      =   $(this).attr('data_examen_id');
+        var data_cod_resultado  =   $(this).attr('data_cod_resultado');
+        var data_examenres_id   =   $(this).attr('data_examenres_id');
         var _token              =   $('#token').val();
         var idopcion            =   $('#idopcion').val();
 
@@ -49,8 +49,8 @@ $(document).ready(function(){
               url     :   carpeta+"/ajax-mantenimiento-registro-consulta",
               data    :   {
                             _token                : _token,
-                            data_consulta_id      : data_consulta_id,
-                            data_examen_id        : data_examen_id,
+                            data_cod_resultado    : data_cod_resultado,
+                            data_examenres_id     : data_examenres_id,
                             idopcion              : idopcion,
                           },
             beforeSend: function() {

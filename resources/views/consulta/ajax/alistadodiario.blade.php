@@ -14,17 +14,17 @@
 
         @foreach($listaconsulta as $index => $item) 
           <tr>
-            <td>{{$item->EXAMEN}}</td> 
-            <td>{{$item->ESTADORES}}</td>
+            <td>{{$item->examen}}</td> 
+            <td>{{$item->estadores}}</td>
             <td>
-              {{$item->PACIENTE}} - {{$item->FECHAEXAMEN}} {{$item->HORAEXAMEN}} - {{$item->ESTADOTM}}
+              {{$item->paciente}} - {{$item->fechaexamen}} {{$item->horaexamen}} - {{$item->estadotm}}
             </td>
-            <td>{{$item->PERFIL}}</td>
+            <td>{{$item->perfil}}</td>
             <td>
               
               <span class="badge badge-primary btn-eyes btn-modal btn-detalle-registro-consulta" 
-                    data_consulta_id="{{$item->COD_CONSULTA}}"
-                    data_examen_id="{{$item->COD_EXAMEN}}"
+                    data_cod_resultado="{{$item->codresultado}}"
+                    data_examenres_id="{{$item->codresexamen}}"
                     >
                 <span class="mdi mdi-eye  md-trigger"></span>
               </span>
