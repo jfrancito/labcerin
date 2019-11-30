@@ -108,16 +108,6 @@ var App = (function () {
             $(this).addClass("collapsed");
 
         }
-
-
-
-
-
-
-
-
-
-
     });
 
 

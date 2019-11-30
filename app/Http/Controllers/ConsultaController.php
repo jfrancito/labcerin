@@ -30,6 +30,8 @@ class ConsultaController extends Controller
 
 		try{
 
+
+			$fechaActual 		= date('Y-m-d H:i:s');
 			DB::beginTransaction();
 
 			$examen_id 			=  $request['examen_id'];
@@ -46,7 +48,7 @@ class ConsultaController extends Controller
 			$resultadoexamen->estado = 'VAL';
 			//$resultadoexamen->usuariocerin 		= session;
 			$resultadoexamen->observacion = $observacion;
-			$resultadoexamen->fechaval = $this->fechaActual;
+			$resultadoexamen->fechaval = $fechaActual;
 			$resultadoexamen->save();
 
 
@@ -62,7 +64,7 @@ class ConsultaController extends Controller
 				$detalleresultado->valor 		= $data_valor;
 				$detalleresultado->estado 		= 'VAL';
 
-				$detalleresultado->fecha 		= $this->fechaActual;
+				$detalleresultado->fecha 		= $fechaActual;
 				$detalleresultado->save();
 
 
