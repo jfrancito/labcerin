@@ -14,10 +14,13 @@
 
         @foreach($listaconsulta as $index => $item) 
           <tr>
-            <td>{{$item->examen}}</td> 
+            <td>{{$item->examen}}
+            </td> 
             <td>{{$item->estadores}}</td>
             <td>
-              {{$item->paciente}} - {{$item->fechaexamen}} {{$item->horaexamen}} - {{$item->estadotm}}
+
+              <?php echo wordwrap($item->paciente.' - '.$item->fechaexamen.' - '.$item->horaexamen.' - '.$item->estadotm ,25,"<br>\n"); ?>
+
             </td>
             <td>{{$item->perfil}}</td>
             <td>
