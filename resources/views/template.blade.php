@@ -7,8 +7,8 @@
     <meta name="description" content="Sistemas de Planillas">
     <meta name="author" content="Cinthia Vivanco Gonzales">
 
-    <link rel="icon" href="{{ asset('public/img/icono/cerin.ico') }}">    
-    <title>Cerin</title>
+    <link rel="icon" href="{{ asset('public/img/icono/labcerin.ico') }}">    
+    <title>Lab Cerin</title>
 
 
     <link rel="stylesheet" type="text/css" href="{{ asset('public/lib/perfect-scrollbar/css/perfect-scrollbar.min.css') }}" />
@@ -23,7 +23,7 @@
 
 
     @yield('style')
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css') }} "/>
+    <link rel="stylesheet" type="text/css" href="{{ asset('public/css/style.css?v='.$version) }} "/>
     <link rel="stylesheet" type="text/css" href="{{ asset('public/css/alfasweb.css?v='.$version) }} "/>
 
   </head>

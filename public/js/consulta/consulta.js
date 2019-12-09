@@ -43,6 +43,8 @@ $(document).ready(function(){
         var data_examenres_id   =   $(this).attr('data_examenres_id');
         var _token              =   $('#token').val();
         var idopcion            =   $('#idopcion').val();
+        var ffin                =   $('#ffin').val();
+
 
         $.ajax({
               type    :   "POST",
@@ -52,6 +54,7 @@ $(document).ready(function(){
                             data_cod_resultado    : data_cod_resultado,
                             data_examenres_id     : data_examenres_id,
                             idopcion              : idopcion,
+                            ffin                  : ffin,
                           },
             beforeSend: function() {
                 $('.ajax_resultado_examen_atender').html("<div class='row text-center'><div class='lds-roller'><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>");

@@ -6,11 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Sistemas de Planillas">
     <meta name="author" content="Cinthia Vivanco Gonzales">
-    <link rel="icon" href="{{ asset('public/img/icono/cerin.ico') }}">
+    <link rel="icon" href="{{ asset('public/img/icono/labcerin.ico') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('public/css/alfasweb.css') }} "/>
 
 
-    <title>Cerin</title>
+    <title>Lab Cerin</title>
     <link rel="stylesheet" type="text/css" href="{{ asset('public/lib/perfect-scrollbar/css/perfect-scrollbar.min.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('public/lib/material-design-icons/css/material-design-iconic-font.min.css') }} "/>
 
@@ -30,8 +30,7 @@
           <div class="splash-container">
             <div class="panel panel-default panel-border-color panel-border-color-primary">
               <div class="panel-heading">
-                
-              <img src="{{ asset('public/img/logologin.png') }}" alt="logo" width="170" height="120" class="logo-img">
+              <img src="{{ asset('public/img/logolab_cerin.png') }}" alt="logo" width="170" height="120" class="logo-img">
               <span class="splash-description">Por favor ingrese su información de usuario.</span>
               </div>
               <div class="panel-body">

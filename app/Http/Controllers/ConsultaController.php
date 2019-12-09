@@ -32,6 +32,9 @@ class ConsultaController extends Controller
 
 
 			$fechaActual 		= date('Y-m-d H:i:s');
+			$ffin 				= $request['ffin'];
+
+
 			DB::beginTransaction();
 
 			$examen_id 			=  $request['examen_id'];
@@ -41,14 +44,11 @@ class ConsultaController extends Controller
 
 
 
-			$resultadoexamen 	=  ResultadoExamen::where('codresexamen','=',$examen_id)->first();
-
-
-
-			$resultadoexamen->estado = 'VAL';
+			$resultadoexamen 				=  ResultadoExamen::where('codresexamen','=',$examen_id)->first();
+			$resultadoexamen->estado 		= 'VAL';
 			//$resultadoexamen->usuariocerin 		= session;
-			$resultadoexamen->observacion = $observacion;
-			$resultadoexamen->fechaval = $fechaActual;
+			$resultadoexamen->observacion 	= $observacion;
+			$resultadoexamen->fechaval 		= $fechaActual;
 			$resultadoexamen->save();
 
 
@@ -74,7 +74,7 @@ class ConsultaController extends Controller
 
 			DB::commit();
 
-	 		return Redirect::to('/gestion-listado-diario/'.$idopcion)->with('bienhecho', 'El examen se actualizo');
+	 		return Redirect::to('/gestion-listado-diario/'.$idopcion)->with('ffin', $ffin);;
 
 			}catch(Exception $ex){
 				DB::rollback();
@@ -92,6 +92,8 @@ class ConsultaController extends Controller
 		$data_cod_resultado  		= 	$request['data_cod_resultado'];
 		$data_examenres_id  		= 	$request['data_examenres_id'];
 		$idopcion  					= 	$request['idopcion'];
+		$ffin 						= 	$request['ffin'];
+
 
 
 
@@ -102,13 +104,12 @@ class ConsultaController extends Controller
 										->where('codresexamen','=',$data_examenres_id)->first();
 
 							
-
-
 		return View::make('consulta/ajax/mantenimientoconsulta',
 						 [
 							 'listadetalleconsulta' => $listadetalleconsulta,
 							 'consulta' 			=> $consulta,
-							 'idopcion' 			=> $idopcion
+							 'idopcion' 			=> $idopcion,
+							 'ffin' 				=> $ffin,
 						 ]);
 
 
@@ -122,8 +123,14 @@ class ConsultaController extends Controller
 	    if($validarurl <> 'true'){return $validarurl;}
 	    /******************************************************/ 
 
-	    $fechafin  					= 	$this->fin;
-	    $fechabusqueda				=  date_format(date_create($fechafin), 'd/m/Y');
+
+	    if (Session::get('ffin')){
+	    	$fechafin 	=	Session::get('ffin');
+	    }else{
+		    $fechafin 	= $this->fin;
+	    }
+
+	    $fechabusqueda	=  date_format(date_create($fechafin), 'd/m/Y');
 
 		$listaconsulta = ListarConsultasWeb::where('fechaexamen','=',$fechabusqueda)->get();
 

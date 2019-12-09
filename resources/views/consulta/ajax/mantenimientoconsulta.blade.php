@@ -14,6 +14,9 @@
             <input type="hidden" name="examen_id" id='examen_id' value='{{$consulta->codresexamen}}'>
             <input type="hidden" name="observacion" id='observacion' value=''>
             <input type="hidden" name="xml_productos" id='xml_productos' value="">
+            <input type="hidden" name="ffin" id='ffin' value="{{$ffin}}">
+
+
             <button type="submit" class="btn btn-space btn-success btn-big btn-guardar btn-guardar-re">
               <i class="icon mdi mdi-check"></i> Guardar
             </button>

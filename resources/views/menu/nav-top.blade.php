@@ -21,7 +21,7 @@
         <h3 class="media-heading">
             <div class="ubicacion">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
-                Cerin
+                LAB CERIN
             </div>
         </h3>  
       </div>
