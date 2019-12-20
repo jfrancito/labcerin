@@ -38,10 +38,12 @@ class ConsultaController extends Controller
 			DB::beginTransaction();
 
 			$examen_id 			=  $request['examen_id'];
-			$observacion 		=  $request['observacion'];
+			$observacion 		=  trim($request['observacion']);
 			$respuesta 			=  json_decode($request['xml_productos'], true);
 		
-
+			if(is_null($observacion)){
+				$observacion = '';
+			}
 
 
 			$resultadoexamen 				=  ResultadoExamen::where('codresexamen','=',$examen_id)->first();
