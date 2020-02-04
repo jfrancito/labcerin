@@ -54,7 +54,6 @@ class ConsultaController extends Controller
 			$resultadoexamen->save();
 
 
-
 			foreach($respuesta as $obj){
 
 				$data_id_coddetalleexamen 		= 	$obj['data_id_coddetalleexamen'];
@@ -72,9 +71,16 @@ class ConsultaController extends Controller
 
 			}
 
+			$cod = $resultadoexamen->coddetalleconsulta;
 
 
+	        $stmt 	= 	DB::connection('sqlsrv')->getPdo()->prepare('SET NOCOUNT ON;EXEC pr_ValidaResultadoInformado 
+	        			@coddetalleconsulta = ?');
+	        $stmt->bindParam(1, $cod ,PDO::PARAM_STR);                                          			
+	        $stmt->execute();
 			DB::commit();
+
+
 
 	 		return Redirect::to('/gestion-listado-diario/'.$idopcion)->with('ffin', $ffin);;
 
